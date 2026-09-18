@@ -1,0 +1,20 @@
+const WHATSAPP_NUMBER = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? "923001234567";
+const DEFAULT_MESSAGE = "Assalamu Alaikum, I would like to book a free Quran trial class.";
+
+export default function WhatsAppButton() {
+  const href = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(DEFAULT_MESSAGE)}`;
+
+  return (
+    <a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Chat on WhatsApp"
+      className="fixed bottom-5 right-5 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] text-white shadow-lg transition-transform hover:scale-105"
+    >
+      <svg viewBox="0 0 32 32" fill="currentColor" className="h-7 w-7">
+        <path d="M16.004 3C9.376 3 4 8.373 4 15c0 2.34.653 4.527 1.786 6.393L4 29l7.81-1.752A11.93 11.93 0 0 0 16.004 27C22.63 27 28 21.627 28 15S22.63 3 16.004 3Zm0 21.75a9.7 9.7 0 0 1-4.94-1.353l-.354-.21-4.633 1.04 1.02-4.517-.232-.37A9.7 9.7 0 0 1 5.25 15c0-5.93 4.823-10.75 10.754-10.75S26.75 9.07 26.75 15 21.934 24.75 16.004 24.75Zm5.55-8.06c-.303-.152-1.792-.885-2.07-.986-.278-.101-.48-.152-.682.152-.202.303-.783.985-.96 1.187-.176.202-.353.227-.656.076-.303-.152-1.28-.472-2.437-1.505-.901-.803-1.51-1.795-1.687-2.098-.176-.303-.019-.467.133-.618.136-.136.303-.353.454-.53.152-.177.202-.303.303-.505.101-.202.05-.379-.025-.53-.076-.152-.682-1.646-.935-2.253-.246-.591-.497-.511-.682-.52l-.581-.01a1.12 1.12 0 0 0-.808.379c-.278.303-1.06 1.036-1.06 2.526s1.086 2.929 1.237 3.132c.152.202 2.137 3.263 5.178 4.575.723.312 1.288.499 1.728.638.726.231 1.386.198 1.908.12.582-.087 1.792-.733 2.045-1.44.253-.708.253-1.314.177-1.44-.076-.126-.278-.202-.581-.354Z" />
+      </svg>
+    </a>
+  );
+}
