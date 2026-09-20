@@ -20,9 +20,14 @@ export default function Header() {
     <header className="sticky top-0 z-40 border-b border-primary-100/60 bg-background/95 backdrop-blur">
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6 lg:px-8">
         <Link href="/" className="flex items-center gap-2" onClick={() => setOpen(false)}>
-          <span className="flex h-9 w-9 items-center justify-center rounded-full bg-primary-500 font-heading text-lg font-bold text-white">
-            H
-          </span>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/logo-emblem.png"
+            alt=""
+            width={40}
+            height={40}
+            className="h-10 w-10 rounded-lg"
+          />
           <span className="font-heading text-lg font-semibold text-primary-600">
             Hafiz Quran Tutor
           </span>

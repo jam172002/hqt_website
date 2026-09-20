@@ -35,9 +35,14 @@ export default function Footer() {
         <div className="grid grid-cols-2 gap-10 sm:grid-cols-4">
           <div className="col-span-2 sm:col-span-1">
             <div className="flex items-center gap-2">
-              <span className="flex h-8 w-8 items-center justify-center rounded-full bg-accent-500 font-heading text-base font-bold text-primary-700">
-                H
-              </span>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/logo-emblem.png"
+                alt=""
+                width={36}
+                height={36}
+                className="h-9 w-9 rounded-lg"
+              />
               <span className="font-heading text-base font-semibold text-white">
                 Hafiz Quran Tutor
               </span>
