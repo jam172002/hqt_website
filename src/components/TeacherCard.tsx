@@ -1,7 +1,9 @@
 import Link from "next/link";
 import { firstImageUrl, type Teacher } from "@/lib/api";
+import { getContent } from "@/lib/content";
 
 export default async function TeacherCard({ teacher }: { teacher: Teacher }) {
+  const { page: c } = await getContent("teachers");
   const initials = `${teacher.firstName.charAt(0)}${teacher.lastName.charAt(0)}`;
   // Public media reads are unauthenticated GETs served straight from the backend, so a plain
   // <img> (not next/image, which needs a fixed, pre-configured remote domain) is the simplest
@@ -30,7 +32,7 @@ export default async function TeacherCard({ teacher }: { teacher: Teacher }) {
       </h3>
       <p className="mt-1 text-sm font-medium text-accent-700">{teacher.qualification}</p>
       {teacher.experienceYears != null && (
-        <p className="mt-1 text-xs text-charcoal-light">{teacher.experienceYears}+ years experience</p>
+        <p className="mt-1 text-xs text-charcoal-light">{c.tf("list.experienceCard", { years: teacher.experienceYears })}</p>
       )}
       <p className="mt-3 text-sm leading-6 text-charcoal-light">
         {teacher.shortBio ?? teacher.bio}

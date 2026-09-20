@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ApiError, api, firstImageUrl } from "@/lib/api";
+import { getContent } from "@/lib/content";
 
 export async function generateMetadata({
   params,
@@ -35,6 +36,7 @@ export default async function CourseDetailPage({
   }
 
   const imageUrl = await firstImageUrl("COURSE", course.id);
+  const { page: c } = await getContent("courses");
 
   return (
     <div>
@@ -49,7 +51,7 @@ export default async function CourseDetailPage({
             />
           )}
           <p className="font-heading text-sm font-semibold uppercase tracking-widest text-accent-700">
-            Course
+            {c.t("detail.eyebrow")}
           </p>
           <h1 className="mt-3 font-heading text-3xl font-bold text-primary-700 sm:text-4xl">
             {course.name}
@@ -61,19 +63,19 @@ export default async function CourseDetailPage({
             href="/trial"
             className="mt-7 inline-block rounded-full bg-primary-500 px-8 py-3.5 font-semibold text-white shadow-md transition-colors hover:bg-primary-600"
           >
-            Book Free Trial
+            {c.t("detail.trialButton")}
           </Link>
         </div>
       </section>
 
       <section className="mx-auto grid max-w-5xl grid-cols-1 gap-12 px-4 py-16 sm:px-6 lg:grid-cols-3 lg:px-8">
         <div className="lg:col-span-2">
-          <h2 className="font-heading text-xl font-semibold text-charcoal">About This Course</h2>
+          <h2 className="font-heading text-xl font-semibold text-charcoal">{c.t("detail.aboutHeading")}</h2>
           <p className="mt-3 leading-7 text-charcoal-light">{course.description}</p>
 
           {course.sections.length > 0 && (
             <div className="mt-10">
-              <h2 className="font-heading text-xl font-semibold text-charcoal">Curriculum</h2>
+              <h2 className="font-heading text-xl font-semibold text-charcoal">{c.t("detail.curriculumHeading")}</h2>
               <ol className="mt-4 space-y-4">
                 {course.sections
                   .slice()
@@ -92,7 +94,7 @@ export default async function CourseDetailPage({
 
           {course.faqs.length > 0 && (
             <div className="mt-10">
-              <h2 className="font-heading text-xl font-semibold text-charcoal">Frequently Asked Questions</h2>
+              <h2 className="font-heading text-xl font-semibold text-charcoal">{c.t("detail.faqHeading")}</h2>
               <div className="mt-4 space-y-3">
                 {course.faqs
                   .slice()
@@ -113,30 +115,30 @@ export default async function CourseDetailPage({
         <aside className="space-y-6">
           <div className="rounded-2xl border border-primary-100 bg-white p-6">
             <h3 className="font-heading text-sm font-semibold uppercase tracking-wide text-accent-700">
-              Course Details
+              {c.t("detail.detailsHeading")}
             </h3>
             <dl className="mt-4 space-y-3 text-sm">
               {course.suitableFor && (
                 <div>
-                  <dt className="font-medium text-charcoal">Suitable For</dt>
+                  <dt className="font-medium text-charcoal">{c.t("detail.suitableLabel")}</dt>
                   <dd className="text-charcoal-light">{course.suitableFor}</dd>
                 </div>
               )}
               {course.ageGroup && (
                 <div>
-                  <dt className="font-medium text-charcoal">Age Group</dt>
+                  <dt className="font-medium text-charcoal">{c.t("detail.ageLabel")}</dt>
                   <dd className="text-charcoal-light">{course.ageGroup}</dd>
                 </div>
               )}
               {course.teachingMethod && (
                 <div>
-                  <dt className="font-medium text-charcoal">Teaching Method</dt>
+                  <dt className="font-medium text-charcoal">{c.t("detail.methodLabel")}</dt>
                   <dd className="text-charcoal-light">{course.teachingMethod}</dd>
                 </div>
               )}
               {course.classFormat && (
                 <div>
-                  <dt className="font-medium text-charcoal">Class Format</dt>
+                  <dt className="font-medium text-charcoal">{c.t("detail.formatLabel")}</dt>
                   <dd className="text-charcoal-light">{course.classFormat}</dd>
                 </div>
               )}
@@ -146,7 +148,7 @@ export default async function CourseDetailPage({
           {course.teachers.length > 0 && (
             <div className="rounded-2xl border border-primary-100 bg-white p-6">
               <h3 className="font-heading text-sm font-semibold uppercase tracking-wide text-accent-700">
-                Teachers
+                {c.t("detail.teachersHeading")}
               </h3>
               <ul className="mt-4 space-y-3">
                 {course.teachers.map((t) => (

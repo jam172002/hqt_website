@@ -2,81 +2,49 @@ import type { Metadata } from "next";
 import { Fragment } from "react";
 import PageHero from "@/components/PageHero";
 import ContactForm from "@/components/ContactForm";
-import { getContentBlock } from "@/lib/api";
+import { getContent, getSeo, whatsappLink } from "@/lib/content";
 
-export const metadata: Metadata = {
-  title: "Contact Us",
-  description: "Get in touch with Hafiz Quran Tutor by WhatsApp, email, or our contact form.",
-};
-
-const WHATSAPP_NUMBER = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? "923001234567";
-const PHONE_NUMBER = process.env.NEXT_PUBLIC_PHONE_NUMBER ?? "+923001234567";
-const CONTACT_EMAIL = process.env.NEXT_PUBLIC_CONTACT_EMAIL ?? "info@hafizqurantutor.com";
-
-const DEFAULT_HERO_TITLE = "Get in Touch";
-const DEFAULT_HERO_DESCRIPTION = "Questions about courses, pricing, or scheduling? We're here to help, worldwide, every day.";
-const DEFAULT_HOURS_TITLE = "Working Hours";
-const DEFAULT_HOURS_LINES = [
-  "Support team: Monday - Saturday, 9:00 AM - 9:00 PM (GMT+5).",
-  "Classes run worldwide, every day of the week, in the student's own time zone.",
-];
+export async function generateMetadata(): Promise<Metadata> {
+  const seo = await getSeo("contact");
+  return { title: seo.title, description: seo.description };
+}
 
 export default async function ContactPage() {
-  const [heroContent, hoursContent] = await Promise.all([
-    getContentBlock("contact.hero"),
-    getContentBlock("contact.hours"),
-  ]);
-  const heroTitle = heroContent?.title || DEFAULT_HERO_TITLE;
-  const heroDescription = heroContent?.content || DEFAULT_HERO_DESCRIPTION;
-  const hoursTitle = hoursContent?.title || DEFAULT_HOURS_TITLE;
-  // Admin enters working-hours copy as separate lines; each becomes its own <br/>-separated line here.
-  const hoursLines = hoursContent?.content ? hoursContent.content.split("\n") : DEFAULT_HOURS_LINES;
+  const { global: g, page: c } = await getContent("contact");
+  const whatsappNumber = g.t("contact.whatsappNumber").replace(/\D/g, "");
+  const phone = g.t("contact.phoneNumber");
+  const email = g.t("contact.email");
+  const hoursLines = c.list("info.hours").map((line) => line.text);
+
+  const boxTitle = "font-heading text-sm font-semibold uppercase tracking-wide text-accent-700";
+  const boxLink = "mt-2 block text-sm font-medium text-primary-600 hover:text-primary-700";
 
   return (
     <div>
-      <PageHero eyebrow="Contact" title={heroTitle} description={heroDescription} />
+      <PageHero eyebrow={c.t("hero.eyebrow")} title={c.t("hero.title")} description={c.t("hero.description")} />
 
       <section className="mx-auto grid max-w-5xl grid-cols-1 gap-12 px-4 py-16 sm:px-6 lg:grid-cols-3 lg:px-8">
         <div className="space-y-6 lg:col-span-1">
           <div className="rounded-2xl border border-primary-100 bg-white p-6">
-            <h3 className="font-heading text-sm font-semibold uppercase tracking-wide text-accent-700">
-              WhatsApp
-            </h3>
-            <a
-              href={`https://wa.me/${WHATSAPP_NUMBER}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-2 block text-sm font-medium text-primary-600 hover:text-primary-700"
-            >
-              +{WHATSAPP_NUMBER}
+            <h3 className={boxTitle}>{c.t("info.whatsappLabel")}</h3>
+            <a href={whatsappLink(g)} target="_blank" rel="noopener noreferrer" className={boxLink}>
+              +{whatsappNumber}
             </a>
           </div>
           <div className="rounded-2xl border border-primary-100 bg-white p-6">
-            <h3 className="font-heading text-sm font-semibold uppercase tracking-wide text-accent-700">
-              Phone
-            </h3>
-            <a
-              href={`tel:${PHONE_NUMBER}`}
-              className="mt-2 block text-sm font-medium text-primary-600 hover:text-primary-700"
-            >
-              {PHONE_NUMBER}
+            <h3 className={boxTitle}>{c.t("info.phoneLabel")}</h3>
+            <a href={`tel:${phone}`} className={boxLink}>
+              {phone}
             </a>
           </div>
           <div className="rounded-2xl border border-primary-100 bg-white p-6">
-            <h3 className="font-heading text-sm font-semibold uppercase tracking-wide text-accent-700">
-              Email
-            </h3>
-            <a
-              href={`mailto:${CONTACT_EMAIL}`}
-              className="mt-2 block text-sm font-medium text-primary-600 hover:text-primary-700"
-            >
-              {CONTACT_EMAIL}
+            <h3 className={boxTitle}>{c.t("info.emailLabel")}</h3>
+            <a href={`mailto:${email}`} className={boxLink}>
+              {email}
             </a>
           </div>
           <div className="rounded-2xl border border-primary-100 bg-white p-6">
-            <h3 className="font-heading text-sm font-semibold uppercase tracking-wide text-accent-700">
-              {hoursTitle}
-            </h3>
+            <h3 className={boxTitle}>{c.t("info.hoursTitle")}</h3>
             <p className="mt-2 text-sm text-charcoal-light">
               {hoursLines.map((line, i) => (
                 <Fragment key={i}>
@@ -89,7 +57,14 @@ export default async function ContactPage() {
         </div>
 
         <div className="lg:col-span-2">
-          <ContactForm />
+          <ContactForm
+            labels={{
+              submit: c.t("form.submitButton"),
+              sending: c.t("form.sendingText"),
+              successTitle: c.t("form.successTitle"),
+              successText: c.t("form.successText"),
+            }}
+          />
         </div>
       </section>
     </div>

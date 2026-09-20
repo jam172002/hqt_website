@@ -1,8 +1,8 @@
-const WHATSAPP_NUMBER = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? "923001234567";
-const DEFAULT_MESSAGE = "Assalamu Alaikum, I would like to book a free Quran trial class.";
+import { getContent, whatsappLink } from "@/lib/content";
 
-export default function WhatsAppButton() {
-  const href = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(DEFAULT_MESSAGE)}`;
+export default async function WhatsAppButton() {
+  const { global: g } = await getContent();
+  const href = whatsappLink(g, g.t("contact.whatsappMessage"));
 
   return (
     <a

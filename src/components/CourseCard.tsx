@@ -1,8 +1,10 @@
 import Link from "next/link";
 import { firstImageUrl, type Course } from "@/lib/api";
+import { getContent } from "@/lib/content";
 
 export default async function CourseCard({ course }: { course: Course }) {
   const imageUrl = await firstImageUrl("COURSE", course.id);
+  const { page: c } = await getContent("courses");
 
   return (
     <Link
@@ -29,7 +31,7 @@ export default async function CourseCard({ course }: { course: Course }) {
           </p>
         )}
         <span className="mt-4 text-sm font-semibold text-primary-500 group-hover:text-primary-600">
-          Learn More &rarr;
+          {c.t("list.cardButton")} &rarr;
         </span>
       </div>
     </Link>

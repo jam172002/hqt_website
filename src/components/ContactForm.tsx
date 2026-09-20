@@ -7,7 +7,14 @@ import HoneypotField, { HONEYPOT_FIELD_NAME } from "./HoneypotField";
 const inputClass =
   "block w-full rounded-lg border border-primary-100 bg-white px-3.5 py-2.5 text-sm text-charcoal placeholder:text-charcoal-light/60 focus:border-primary-400 focus:outline-none focus:ring-2 focus:ring-primary-400/30";
 
-export default function ContactForm() {
+export interface ContactFormLabels {
+  submit: string;
+  sending: string;
+  successTitle: string;
+  successText: string;
+}
+
+export default function ContactForm({ labels }: { labels: ContactFormLabels }) {
   const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
@@ -50,8 +57,8 @@ export default function ContactForm() {
   if (status === "success") {
     return (
       <div className="rounded-2xl border border-secondary-500/30 bg-secondary-500/5 p-8 text-center">
-        <h3 className="font-heading text-xl font-semibold text-primary-700">Message sent!</h3>
-        <p className="mt-2 text-charcoal-light">We&apos;ll get back to you as soon as possible.</p>
+        <h3 className="font-heading text-xl font-semibold text-primary-700">{labels.successTitle}</h3>
+        <p className="mt-2 text-charcoal-light">{labels.successText}</p>
       </div>
     );
   }
@@ -103,7 +110,7 @@ export default function ContactForm() {
         disabled={status === "submitting"}
         className="w-full rounded-full bg-primary-500 px-8 py-3.5 font-semibold text-white shadow-md transition-colors hover:bg-primary-600 disabled:opacity-60 sm:w-auto"
       >
-        {status === "submitting" ? "Sending..." : "Send Message"}
+        {status === "submitting" ? labels.sending : labels.submit}
       </button>
     </form>
   );

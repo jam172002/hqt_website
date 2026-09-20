@@ -13,7 +13,16 @@ function detectTimezone(): string {
   }
 }
 
-export default function TrialForm({ courses }: { courses: Course[] }) {
+export interface TrialFormLabels {
+  submit: string;
+  submitting: string;
+  successTitle: string;
+  successText: string;
+  whatsappButton: string;
+  whatsappHref: string;
+}
+
+export default function TrialForm({ courses, labels }: { courses: Course[]; labels: TrialFormLabels }) {
   const timezones = useMemo(() => {
     try {
       return Intl.supportedValuesOf("timeZone");
@@ -84,11 +93,21 @@ export default function TrialForm({ courses }: { courses: Course[] }) {
     return (
       <div className="rounded-2xl border border-secondary-500/30 bg-secondary-500/5 p-8 text-center">
         <h3 className="font-heading text-xl font-semibold text-primary-700">
-          Thank you! Your trial request has been received.
+          {labels.successTitle}
         </h3>
         <p className="mt-2 text-charcoal-light">
-          Our team will contact you on WhatsApp or email shortly to confirm your free trial class.
+          {labels.successText}
         </p>
+        {labels.whatsappButton && (
+          <a
+            href={labels.whatsappHref}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-6 inline-block rounded-full bg-[#25D366] px-8 py-3 font-semibold text-white shadow-md transition-opacity hover:opacity-90"
+          >
+            {labels.whatsappButton}
+          </a>
+        )}
       </div>
     );
   }
@@ -218,7 +237,7 @@ export default function TrialForm({ courses }: { courses: Course[] }) {
         disabled={status === "submitting"}
         className="w-full rounded-full bg-primary-500 px-8 py-3.5 font-semibold text-white shadow-md transition-colors hover:bg-primary-600 disabled:opacity-60 sm:w-auto"
       >
-        {status === "submitting" ? "Submitting..." : "Book Free Trial"}
+        {status === "submitting" ? labels.submitting : labels.submit}
       </button>
     </form>
   );

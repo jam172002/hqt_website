@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ApiError, api, firstImageUrl } from "@/lib/api";
+import { getContent } from "@/lib/content";
 
 export async function generateMetadata({
   params,
@@ -38,6 +39,7 @@ export default async function TeacherDetailPage({
   }
 
   const photoUrl = await firstImageUrl("TEACHER_PROFILE", teacher.id);
+  const { page: c } = await getContent("teachers");
   const initials = `${teacher.firstName.charAt(0)}${teacher.lastName.charAt(0)}`;
 
   return (
@@ -61,33 +63,33 @@ export default async function TeacherDetailPage({
           </h1>
           <p className="mt-2 font-medium text-accent-700">{teacher.qualification}</p>
           {teacher.experienceYears != null && (
-            <p className="mt-1 text-sm text-charcoal-light">{teacher.experienceYears}+ years of teaching experience</p>
+            <p className="mt-1 text-sm text-charcoal-light">{c.tf("detail.experienceLine", { years: teacher.experienceYears })}</p>
           )}
           <Link
             href="/trial"
             className="mt-7 inline-block rounded-full bg-primary-500 px-8 py-3.5 font-semibold text-white shadow-md transition-colors hover:bg-primary-600"
           >
-            Book Free Trial
+            {c.t("detail.trialButton")}
           </Link>
         </div>
       </section>
 
       <section className="mx-auto max-w-3xl space-y-10 px-4 py-16 sm:px-6 lg:px-8">
         <div>
-          <h2 className="font-heading text-xl font-semibold text-charcoal">About</h2>
+          <h2 className="font-heading text-xl font-semibold text-charcoal">{c.t("detail.aboutHeading")}</h2>
           <p className="mt-3 leading-7 text-charcoal-light">{teacher.bio}</p>
         </div>
 
         {teacher.teachingPhilosophy && (
           <div>
-            <h2 className="font-heading text-xl font-semibold text-charcoal">Teaching Philosophy</h2>
+            <h2 className="font-heading text-xl font-semibold text-charcoal">{c.t("detail.philosophyHeading")}</h2>
             <p className="mt-3 leading-7 text-charcoal-light">{teacher.teachingPhilosophy}</p>
           </div>
         )}
 
         <div className="rounded-2xl border border-primary-100 bg-white p-6">
           <h2 className="font-heading text-sm font-semibold uppercase tracking-wide text-accent-700">
-            Qualifications
+            {c.t("detail.qualificationsHeading")}
           </h2>
           <p className="mt-3 text-sm leading-6 text-charcoal-light">{teacher.qualification}</p>
         </div>

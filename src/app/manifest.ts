@@ -7,7 +7,7 @@ export default function manifest(): MetadataRoute.Manifest {
     description: "One-to-one online Quran classes with certified teachers, worldwide.",
     start_url: "/",
     display: "standalone",
-    background_color: "#060c09",
+    background_color: "#030906",
     theme_color: "#0f5132",
     icons: [
       { src: "/pwa-icon-192x192.png", sizes: "192x192", type: "image/png" },

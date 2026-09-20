@@ -1,0 +1,415 @@
+{
+  "global": {
+    "brand": {
+      "siteName": "Hafiz Quran Tutor",
+      "tagline": "One-to-one online Quran classes with certified teachers, for students of every age, anywhere in the world.",
+      "siteDescription": "Learn to read, recite, and memorize the Quran with certified teachers through personalized, one-to-one online classes - available worldwide."
+    },
+    "contact": {
+      "whatsappNumber": "923001234567",
+      "phoneNumber": "+923001234567",
+      "email": "info@hafizqurantutor.com",
+      "whatsappMessage": "Assalamu Alaikum, I would like to book a free Quran trial class."
+    },
+    "header": {
+      "navHome": "Home",
+      "navAbout": "About",
+      "navCourses": "Courses",
+      "navTeachers": "Teachers",
+      "navPricing": "Pricing",
+      "navFaq": "FAQ",
+      "navContact": "Contact",
+      "trialButton": "Book Free Trial"
+    },
+    "footer": {
+      "exploreTitle": "Explore",
+      "supportTitle": "Support",
+      "legalTitle": "Legal",
+      "copyright": "Hafiz Quran Tutor. All rights reserved.",
+      "bottomLine": "Worldwide online classes · Available every day of the week"
+    },
+    "notFound": {
+      "title": "Page Not Found",
+      "text": "The page you're looking for doesn't exist or may have been moved.",
+      "homeButton": "Back to Home",
+      "coursesButton": "Browse Courses"
+    }
+  },
+  "home": {
+    "hero": {
+      "eyebrow": "Online Quran Learning Platform",
+      "title": "Learn the Quran Online with Certified, One-to-One Teachers",
+      "description": "Quran Reading, Tajweed, Hifz, Translation, and Islamic Studies — personalized classes for children, adults, and families, anywhere in the world.",
+      "primaryButton": "Book Free Trial",
+      "whatsappButton": "Chat on WhatsApp"
+    },
+    "trust": {
+      "items": [
+        {
+          "title": "Qualified Quran Teachers",
+          "text": "Certified, experienced teachers of Quran and Tajweed."
+        },
+        {
+          "title": "One-to-One Classes",
+          "text": "Every class is individual, personalized attention only."
+        },
+        {
+          "title": "Flexible Timings",
+          "text": "Choose a schedule that fits your timezone, any day."
+        },
+        {
+          "title": "Students Worldwide",
+          "text": "Trusted by families across dozens of countries."
+        }
+      ]
+    },
+    "courses": {
+      "heading": "Our Courses",
+      "subheading": "Structured programs for every stage of the Quran learning journey.",
+      "viewAll": "View All Courses"
+    },
+    "whyUs": {
+      "heading": "Why Choose Us",
+      "items": [
+        {
+          "text": "Individual attention in every class"
+        },
+        {
+          "text": "Experienced, certified teachers"
+        },
+        {
+          "text": "Flexible scheduling across time zones"
+        },
+        {
+          "text": "Fully online, learn from anywhere"
+        },
+        {
+          "text": "Available to students worldwide"
+        }
+      ]
+    },
+    "howItWorks": {
+      "heading": "How It Works",
+      "steps": [
+        {
+          "title": "Register",
+          "text": "Tell us a little about the student and preferred schedule."
+        },
+        {
+          "title": "Book Free Trial",
+          "text": "Try a class with no cost and no obligation."
+        },
+        {
+          "title": "Meet Your Teacher",
+          "text": "Get matched with a qualified teacher for your goals."
+        },
+        {
+          "title": "Start Learning",
+          "text": "Begin regular one-to-one classes on your schedule."
+        }
+      ]
+    },
+    "teachers": {
+      "heading": "Meet Our Teachers",
+      "subheading": "Experienced, certified, and dedicated to every student.",
+      "viewAll": "View All Teachers"
+    },
+    "testimonials": {
+      "heading": "What Families Say"
+    },
+    "faq": {
+      "heading": "Frequently Asked Questions",
+      "viewAll": "View All FAQs"
+    },
+    "finalCta": {
+      "heading": "Start Your Quran Learning Journey Today",
+      "primaryButton": "Book Free Trial",
+      "whatsappButton": "Chat on WhatsApp"
+    },
+    "seo": {
+      "metaTitle": "Hafiz Quran Tutor - Online Quran Learning Platform",
+      "metaDescription": "Learn to read, recite, and memorize the Quran with certified teachers through personalized, one-to-one online classes - available worldwide."
+    }
+  },
+  "about": {
+    "hero": {
+      "eyebrow": "About Us",
+      "title": "Trusted Online Quran Education, Worldwide",
+      "description": "Hafiz Quran Tutor connects students and families with certified teachers for personalized, one-to-one Quran classes."
+    },
+    "mission": {
+      "title": "Our Mission",
+      "text": "To make authentic, high-quality Quran education accessible to every student, anywhere in the world, through personal, one-to-one online classes with qualified teachers."
+    },
+    "vision": {
+      "title": "Our Vision",
+      "text": "A global community of confident Quran readers, huffaz, and lifelong learners, connected to their faith no matter where they live."
+    },
+    "approach": {
+      "title": "Our Teaching Approach",
+      "text": "Every class is one-to-one. Teachers adapt pace and method to each student's age, ability, and goals - whether that's learning to read for the first time or completing Hifz."
+    },
+    "whyOnline": {
+      "title": "Why Online Quran Learning",
+      "text": "Online classes remove the barrier of distance and give families the flexibility to schedule around school, work, and time zones - without compromising on quality or individual attention."
+    },
+    "teachers": {
+      "heading": "Our Teachers",
+      "subheading": "Meet some of the certified, experienced teachers who guide our students.",
+      "viewAll": "View All Teachers"
+    },
+    "countries": {
+      "heading": "Countries We Serve",
+      "text": "We teach students across dozens of countries, with flexible timing designed around every time zone.",
+      "button": "Book Free Trial"
+    },
+    "seo": {
+      "metaTitle": "About Us",
+      "metaDescription": "Learn about Hafiz Quran Tutor's mission, teaching approach, and commitment to online Quran education."
+    }
+  },
+  "courses": {
+    "hero": {
+      "eyebrow": "Courses",
+      "title": "Quran Courses for Every Age and Level",
+      "description": "From first letters to full memorization - structured, one-to-one programs guided by qualified teachers."
+    },
+    "list": {
+      "cardButton": "Learn More",
+      "empty": "Courses are currently unavailable. Please check back soon."
+    },
+    "detail": {
+      "eyebrow": "Course",
+      "aboutHeading": "About This Course",
+      "curriculumHeading": "Curriculum",
+      "faqHeading": "Frequently Asked Questions",
+      "detailsHeading": "Course Details",
+      "suitableLabel": "Suitable For",
+      "ageLabel": "Age Group",
+      "methodLabel": "Teaching Method",
+      "formatLabel": "Class Format",
+      "teachersHeading": "Teachers",
+      "trialButton": "Book Free Trial"
+    },
+    "seo": {
+      "metaTitle": "Courses",
+      "metaDescription": "Explore our Quran Reading, Noorani Qaida, Tajweed, Hifz-ul-Quran, Quran Translation, and Islamic Studies courses."
+    }
+  },
+  "teachers": {
+    "hero": {
+      "eyebrow": "Our Teachers",
+      "title": "Learn From Qualified, Experienced Teachers",
+      "description": "Every teacher is certified in Quran recitation and Tajweed, and dedicated to giving each student individual attention."
+    },
+    "list": {
+      "experienceCard": "{years}+ years experience",
+      "empty": "Teacher profiles are currently unavailable. Please check back soon."
+    },
+    "detail": {
+      "experienceLine": "{years}+ years of teaching experience",
+      "aboutHeading": "About",
+      "philosophyHeading": "Teaching Philosophy",
+      "qualificationsHeading": "Qualifications",
+      "trialButton": "Book Free Trial"
+    },
+    "seo": {
+      "metaTitle": "Teachers",
+      "metaDescription": "Meet our certified, experienced Quran teachers available for one-to-one online classes."
+    }
+  },
+  "pricing": {
+    "hero": {
+      "eyebrow": "Pricing",
+      "title": "Simple, Flexible Packages",
+      "description": "Choose a package that fits your schedule and goals. Every plan is one-to-one, taught by a certified teacher."
+    },
+    "cards": {
+      "classesLine": "{count} classes per {period}",
+      "minutesLine": "{minutes} minutes per class",
+      "features": [
+        {
+          "text": "One-to-one with a certified teacher"
+        }
+      ],
+      "button": "Book Free Trial",
+      "empty": "Pricing details are being finalized. Contact us for the latest package information."
+    },
+    "seo": {
+      "metaTitle": "Pricing",
+      "metaDescription": "Simple, flexible pricing packages for one-to-one online Quran classes."
+    }
+  },
+  "trial": {
+    "hero": {
+      "eyebrow": "Free Trial",
+      "title": "Book Your Free Trial Class",
+      "description": "Tell us about the student and preferred schedule, and our team will confirm a free trial class with a suitable teacher."
+    },
+    "form": {
+      "submitButton": "Book Free Trial",
+      "submittingText": "Submitting...",
+      "successTitle": "Thank you! Your trial request has been received.",
+      "successText": "Our team will contact you on WhatsApp or email shortly to confirm your free trial class.",
+      "whatsappButton": "Continue on WhatsApp",
+      "whatsappMessage": "Assalamu Alaikum, I have just submitted a free trial request on your website."
+    },
+    "seo": {
+      "metaTitle": "Book Free Trial",
+      "metaDescription": "Book a free, no-obligation trial Quran class with one of our certified teachers."
+    }
+  },
+  "testimonials": {
+    "hero": {
+      "eyebrow": "Testimonials",
+      "title": "What Families Say About Us",
+      "description": "Real feedback from students and parents learning with our teachers, worldwide."
+    },
+    "groups": {
+      "parents": "From Parents",
+      "adults": "From Adult Students",
+      "hifz": "From Hifz Students",
+      "other": "More Reviews",
+      "empty": "No testimonials to show yet - check back soon."
+    },
+    "seo": {
+      "metaTitle": "Testimonials",
+      "metaDescription": "Read what students and parents say about learning with Hafiz Quran Tutor."
+    }
+  },
+  "faq": {
+    "hero": {
+      "eyebrow": "FAQ",
+      "title": "Frequently Asked Questions",
+      "description": "Can't find your answer here? Reach out on WhatsApp or through our Contact page."
+    },
+    "list": {
+      "empty": "FAQs are being updated - check back soon."
+    },
+    "seo": {
+      "metaTitle": "FAQ",
+      "metaDescription": "Answers to common questions about our online Quran classes."
+    }
+  },
+  "contact": {
+    "hero": {
+      "eyebrow": "Contact",
+      "title": "Get in Touch",
+      "description": "Questions about courses, pricing, or scheduling? We're here to help, worldwide, every day."
+    },
+    "info": {
+      "whatsappLabel": "WhatsApp",
+      "phoneLabel": "Phone",
+      "emailLabel": "Email",
+      "hoursTitle": "Working Hours",
+      "hours": [
+        {
+          "text": "Support team: Monday - Saturday, 9:00 AM - 9:00 PM (GMT+5)."
+        },
+        {
+          "text": "Classes run worldwide, every day of the week, in the student's own time zone."
+        }
+      ]
+    },
+    "form": {
+      "submitButton": "Send Message",
+      "sendingText": "Sending...",
+      "successTitle": "Message sent!",
+      "successText": "We'll get back to you as soon as possible."
+    },
+    "seo": {
+      "metaTitle": "Contact Us",
+      "metaDescription": "Get in touch with Hafiz Quran Tutor by WhatsApp, email, or our contact form."
+    }
+  },
+  "privacy": {
+    "hero": {
+      "title": "Privacy Policy",
+      "description": ""
+    },
+    "notice": {
+      "text": "Last updated: this is a draft policy for review before publication. Please have it checked against your jurisdiction's requirements before launch."
+    },
+    "body": {
+      "items": [
+        {
+          "heading": "1. Information We Collect",
+          "text": "When you request a free trial, contact us, or register for an account, we collect information such as the student's name and age, a parent or guardian's name, country, WhatsApp/phone number, email address, and preferred class schedule. Once enrolled, we also record attendance, lesson notes, homework, progress, and payment history in connection with the classes provided."
+        },
+        {
+          "heading": "2. How We Use Information",
+          "text": "We use this information to respond to inquiries, schedule and deliver classes, match students with suitable teachers, communicate about classes and account activity, process payments, and improve our services. We do not sell personal information to third parties."
+        },
+        {
+          "heading": "3. Children's Information",
+          "text": "Many of our students are children. Accounts and profiles for children are created and managed by a parent or guardian, who consents to the collection described in this policy on the child's behalf. We only collect information about a child that is necessary to provide our educational services."
+        },
+        {
+          "heading": "4. Communication Channels",
+          "text": "We may contact you by email, WhatsApp, phone, or in-app messaging regarding trial requests, class scheduling, homework, payments, and general announcements."
+        },
+        {
+          "heading": "5. Data Security",
+          "text": "We take reasonable technical and organizational measures to protect personal information against unauthorized access, alteration, or loss, including encrypted transmission and access controls limiting staff access to what is needed for their role."
+        },
+        {
+          "heading": "6. Your Rights",
+          "text": "You may request access to, correction of, or deletion of your personal information, or that of a child in your care, by contacting us using the details on our Contact page."
+        },
+        {
+          "heading": "7. Changes to This Policy",
+          "text": "We may update this policy from time to time. Material changes will be posted on this page with an updated effective date."
+        }
+      ]
+    },
+    "seo": {
+      "metaTitle": "Privacy Policy",
+      "metaDescription": "How Hafiz Quran Tutor collects, uses, and protects your information."
+    }
+  },
+  "terms": {
+    "hero": {
+      "title": "Terms & Conditions",
+      "description": ""
+    },
+    "notice": {
+      "text": "Last updated: this is a draft for review before publication. Please have it checked against your jurisdiction's requirements before launch."
+    },
+    "body": {
+      "items": [
+        {
+          "heading": "1. Our Services",
+          "text": "Hafiz Quran Tutor provides one-to-one online Quran and Islamic Studies classes, including a free trial class, ongoing enrollment, scheduling, and progress tracking, delivered by teachers engaged by us."
+        },
+        {
+          "heading": "2. Free Trial",
+          "text": "The free trial class is offered at our discretion, subject to teacher availability, and does not obligate you to enroll further. Trial requests are reviewed and confirmed by our team before a class is scheduled."
+        },
+        {
+          "heading": "3. Enrollment & Scheduling",
+          "text": "Enrollment begins once an admission is confirmed and a package is agreed. Classes are scheduled in the student's selected time zone; rescheduling or cancellation of a specific class is handled according to our scheduling policy communicated at enrollment."
+        },
+        {
+          "heading": "4. Payments",
+          "text": "Package pricing, billing period, and payment method will be confirmed with you before enrollment. Invoices are issued per billing period; continued access to scheduled classes is subject to payments being kept current."
+        },
+        {
+          "heading": "5. Conduct",
+          "text": "Students, parents, and teachers are expected to communicate respectfully. We reserve the right to suspend or end an enrollment in cases of abusive conduct, non-payment, or violation of these terms."
+        },
+        {
+          "heading": "6. Intellectual Property",
+          "text": "Course materials, curriculum, and website content are the property of Hafiz Quran Tutor or its licensors and may not be reproduced or redistributed without permission."
+        },
+        {
+          "heading": "7. Changes to These Terms",
+          "text": "We may update these terms from time to time. Continued use of our services after changes take effect constitutes acceptance of the revised terms."
+        }
+      ]
+    },
+    "seo": {
+      "metaTitle": "Terms & Conditions",
+      "metaDescription": "The terms and conditions governing use of Hafiz Quran Tutor's services."
+    }
+  }
+}

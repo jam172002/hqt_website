@@ -3,17 +3,13 @@
 import Link from "next/link";
 import { useState } from "react";
 
-const NAV_LINKS = [
-  { href: "/", label: "Home" },
-  { href: "/about", label: "About" },
-  { href: "/courses", label: "Courses" },
-  { href: "/teachers", label: "Teachers" },
-  { href: "/pricing", label: "Pricing" },
-  { href: "/faq", label: "FAQ" },
-  { href: "/contact", label: "Contact" },
-];
+interface HeaderProps {
+  links: { href: string; label: string }[];
+  trialLabel: string;
+  brand: string;
+}
 
-export default function Header() {
+export default function Header({ links, trialLabel, brand }: HeaderProps) {
   const [open, setOpen] = useState(false);
 
   return (
@@ -29,12 +25,12 @@ export default function Header() {
             className="h-10 w-10 rounded-lg"
           />
           <span className="font-heading text-lg font-semibold text-primary-600">
-            Hafiz Quran Tutor
+            {brand}
           </span>
         </Link>
 
         <nav className="hidden items-center gap-7 lg:flex">
-          {NAV_LINKS.map((link) => (
+          {links.map((link) => (
             <Link
               key={link.href}
               href={link.href}
@@ -50,7 +46,7 @@ export default function Header() {
             href="/trial"
             className="rounded-full bg-primary-500 px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-primary-600"
           >
-            Book Free Trial
+            {trialLabel}
           </Link>
         </div>
 
@@ -74,7 +70,7 @@ export default function Header() {
       {open && (
         <div className="border-t border-primary-100/60 bg-background lg:hidden">
           <nav className="flex flex-col gap-1 px-4 py-3 sm:px-6">
-            {NAV_LINKS.map((link) => (
+            {links.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
@@ -89,7 +85,7 @@ export default function Header() {
               onClick={() => setOpen(false)}
               className="mt-2 rounded-full bg-primary-500 px-4 py-2.5 text-center text-sm font-semibold text-white"
             >
-              Book Free Trial
+              {trialLabel}
             </Link>
           </nav>
         </div>

@@ -1,31 +1,24 @@
 import type { Metadata } from "next";
-import { api, getContentBlock } from "@/lib/api";
+import { api } from "@/lib/api";
+import { getContent, getSeo } from "@/lib/content";
 import PageHero from "@/components/PageHero";
 
-export const metadata: Metadata = {
-  title: "FAQ",
-  description: "Answers to common questions about our online Quran classes.",
-};
-
-const DEFAULT_HERO_TITLE = "Frequently Asked Questions";
-const DEFAULT_HERO_DESCRIPTION = "Can't find your answer here? Reach out on WhatsApp or through our Contact page.";
+export async function generateMetadata(): Promise<Metadata> {
+  const seo = await getSeo("faq");
+  return { title: seo.title, description: seo.description };
+}
 
 export default async function FaqPage() {
-  const [faqs, heroContent] = await Promise.all([
-    api.faqs.list().catch(() => []),
-    getContentBlock("faq.hero"),
-  ]);
+  const [faqs, { page: c }] = await Promise.all([api.faqs.list().catch(() => []), getContent("faq")]);
   const sorted = faqs.slice().sort((a, b) => a.sortOrder - b.sortOrder);
-  const heroTitle = heroContent?.title || DEFAULT_HERO_TITLE;
-  const heroDescription = heroContent?.content || DEFAULT_HERO_DESCRIPTION;
 
   return (
     <div>
-      <PageHero eyebrow="FAQ" title={heroTitle} description={heroDescription} />
+      <PageHero eyebrow={c.t("hero.eyebrow")} title={c.t("hero.title")} description={c.t("hero.description")} />
 
       <section className="mx-auto max-w-3xl px-4 py-16 sm:px-6 lg:px-8">
         {sorted.length === 0 ? (
-          <p className="text-center text-charcoal-light">FAQs are being updated - check back soon.</p>
+          <p className="text-center text-charcoal-light">{c.t("list.empty")}</p>
         ) : (
           <div className="space-y-3">
             {sorted.map((faq) => (

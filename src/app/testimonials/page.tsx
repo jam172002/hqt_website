@@ -1,24 +1,21 @@
 import type { Metadata } from "next";
-import { api, getContentBlock, type Testimonial } from "@/lib/api";
+import { api, type Testimonial } from "@/lib/api";
+import { getContent, getSeo, type Content } from "@/lib/content";
 import TestimonialCard from "@/components/TestimonialCard";
 import PageHero from "@/components/PageHero";
 
-export const metadata: Metadata = {
-  title: "Testimonials",
-  description: "Read what students and parents say about learning with Hafiz Quran Tutor.",
-};
-
-const DEFAULT_HERO_TITLE = "What Families Say About Us";
-const DEFAULT_HERO_DESCRIPTION = "Real feedback from students and parents learning with our teachers, worldwide.";
+export async function generateMetadata(): Promise<Metadata> {
+  const seo = await getSeo("testimonials");
+  return { title: seo.title, description: seo.description };
+}
 
 const CATEGORY_ORDER = ["PARENT", "ADULT_STUDENT", "HIFZ_STUDENT"] as const;
-const CATEGORY_LABELS: Record<string, string> = {
-  PARENT: "From Parents",
-  ADULT_STUDENT: "From Adult Students",
-  HIFZ_STUDENT: "From Hifz Students",
-};
-
-function groupByCategory(testimonials: Testimonial[]) {
+function groupByCategory(testimonials: Testimonial[], c: Content) {
+  const CATEGORY_LABELS: Record<string, string> = {
+    PARENT: c.t("groups.parents"),
+    ADULT_STUDENT: c.t("groups.adults"),
+    HIFZ_STUDENT: c.t("groups.hifz"),
+  };
   const groups = new Map<string, Testimonial[]>();
   const uncategorized: Testimonial[] = [];
 
@@ -43,28 +40,23 @@ function groupByCategory(testimonials: Testimonial[]) {
     }
   }
   if (uncategorized.length) {
-    ordered.push({ key: "OTHER", label: "More Reviews", items: uncategorized });
+    ordered.push({ key: "OTHER", label: c.t("groups.other"), items: uncategorized });
   }
   return ordered;
 }
 
 export default async function TestimonialsPage() {
-  const [result, heroContent] = await Promise.all([
-    api.testimonials.list().catch(() => null),
-    getContentBlock("testimonials.hero"),
-  ]);
+  const [result, { page: c }] = await Promise.all([api.testimonials.list().catch(() => null), getContent("testimonials")]);
   const testimonials = result?.data ?? [];
-  const groups = groupByCategory(testimonials);
-  const heroTitle = heroContent?.title || DEFAULT_HERO_TITLE;
-  const heroDescription = heroContent?.content || DEFAULT_HERO_DESCRIPTION;
+  const groups = groupByCategory(testimonials, c);
 
   return (
     <div>
-      <PageHero eyebrow="Testimonials" title={heroTitle} description={heroDescription} />
+      <PageHero eyebrow={c.t("hero.eyebrow")} title={c.t("hero.title")} description={c.t("hero.description")} />
 
       <section className="mx-auto max-w-6xl space-y-16 px-4 py-16 sm:px-6 lg:px-8">
         {groups.length === 0 ? (
-          <p className="text-center text-charcoal-light">No testimonials to show yet - check back soon.</p>
+          <p className="text-center text-charcoal-light">{c.t("groups.empty")}</p>
         ) : (
           groups.map((group) => (
             <div key={group.key}>

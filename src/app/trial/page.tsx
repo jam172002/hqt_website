@@ -1,32 +1,32 @@
 import type { Metadata } from "next";
-import { api, getContentBlock } from "@/lib/api";
+import { api } from "@/lib/api";
+import { getContent, getSeo, whatsappLink } from "@/lib/content";
 import PageHero from "@/components/PageHero";
 import TrialForm from "@/components/TrialForm";
 
-export const metadata: Metadata = {
-  title: "Book Free Trial",
-  description: "Book a free, no-obligation trial Quran class with one of our certified teachers.",
-};
-
-const DEFAULT_HERO_TITLE = "Book Your Free Trial Class";
-const DEFAULT_HERO_DESCRIPTION =
-  "Tell us about the student and preferred schedule, and our team will confirm a free trial class with a suitable teacher.";
+export async function generateMetadata(): Promise<Metadata> {
+  const seo = await getSeo("trial");
+  return { title: seo.title, description: seo.description };
+}
 
 export default async function TrialPage() {
-  const [result, heroContent] = await Promise.all([
-    api.courses.list().catch(() => null),
-    getContentBlock("trial.hero"),
-  ]);
+  const [result, { global: g, page: c }] = await Promise.all([api.courses.list().catch(() => null), getContent("trial")]);
   const courses = result?.data ?? [];
-  const heroTitle = heroContent?.title || DEFAULT_HERO_TITLE;
-  const heroDescription = heroContent?.content || DEFAULT_HERO_DESCRIPTION;
+  const labels = {
+    submit: c.t("form.submitButton"),
+    submitting: c.t("form.submittingText"),
+    successTitle: c.t("form.successTitle"),
+    successText: c.t("form.successText"),
+    whatsappButton: c.t("form.whatsappButton"),
+    whatsappHref: whatsappLink(g, c.t("form.whatsappMessage")),
+  };
 
   return (
     <div>
-      <PageHero eyebrow="Free Trial" title={heroTitle} description={heroDescription} />
+      <PageHero eyebrow={c.t("hero.eyebrow")} title={c.t("hero.title")} description={c.t("hero.description")} />
 
       <section className="mx-auto max-w-2xl px-4 py-16 sm:px-6 lg:px-8">
-        <TrialForm courses={courses} />
+        <TrialForm courses={courses} labels={labels} />
       </section>
     </div>
   );
